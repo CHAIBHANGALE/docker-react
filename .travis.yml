@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t  CHAIBHANGALE/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true CHAIBHANGALE/docker-react npm run test
